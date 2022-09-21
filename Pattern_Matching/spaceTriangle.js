@@ -175,26 +175,31 @@
 
 /*************************************************************** */
 
-let n = 5
-let row = 1
-while(row <= n){
-    let str = ""
-    let j = 1 
-    while(j <= n-(row-1) ){
-        str = str + j
-        j++
-    }
-    //print stars
-    let stars = (row-1)*2
-    while(stars){
-        str = str + "*"
-        stars--
-    }
-    let decreasingNo = n-(row-1)
-    while(decreasingNo){
-        str = str + decreasingNo
-        decreasingNo--
-    }
-    row++
-    console.log(str)
-}
+// let n = 5
+// let row = 1
+// while(row <= n){
+//     let str = ""
+//     let j = 1 
+//     while(j <= n-(row-1) ){
+//         str = str + j
+//         j++
+//     }
+//     //print stars
+//     let stars = (row-1)*2
+//     while(stars){
+//         str = str + "*"
+//         stars--
+//     }
+//     let decreasingNo = n-(row-1)
+//     while(decreasingNo){
+//         str = str + decreasingNo
+//         decreasingNo--
+//     }
+//     row++
+//     console.log(str)
+// }
+// Output:
+// 1234554321
+// 1234**4321
+// 123****321
+// 1********1
