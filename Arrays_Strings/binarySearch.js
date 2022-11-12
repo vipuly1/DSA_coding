@@ -116,24 +116,24 @@
 // so we first check if the middle is in the first condition. If yes then we move the start to reach the smaller number sorted elements
 //It the mid is already in the smaller elements then we decrease the end.
 
-// var findMin = function(nums) {
-//     let start = 0
-//     let end = nums.length - 1
-//      while(start < end ){
-//          let mid = Math.floor((start + end)/2)
-//          console.log("mid", mid)
-//          if(nums[mid] >= nums[0]){
-//              start = mid + 1
-//          }
-//          else{
-//              end = mid 
-//          }
-//          console.log("start",start)
-//      }
-//     if( start === end &&  nums[start - 1] <  nums[start]) return nums[0]
-//     else return nums[start]
-// };
-// console.log(findMin([3,1,2]))
+var findMin = function(nums) {
+    let start = 0
+    let end = nums.length - 1
+     while(start < end ){
+         let mid = Math.floor((start + end)/2)
+         console.log("mid", mid)
+         if(nums[mid] >= nums[0]){
+             start = mid + 1
+         }
+         else{
+             end = mid 
+         }
+         console.log("start",start)
+     }
+    if( start === end &&  nums[start - 1] <  nums[start]) return nums[0]
+    else return nums[start]
+};
+console.log(findMin([1,2]))
 
 /********************************************************************** */
 
@@ -253,50 +253,50 @@ console.log(mySqrt(37))
 
 //Painters Partition Problem
 
-let arr = [5,5,5,5]
-let k = 2
-const paintersPartiton = (arr, k ) =>{
-  let start = 0
-  let end = 0
-  let ans = -1
+// let arr = [5,5,5,5]
+// let k = 2
+// const paintersPartiton = (arr, k ) =>{
+//   let start = 0
+//   let end = 0
+//   let ans = -1
 
-  for (let i = 0; i< arr.length; i++){
-      end += arr[i]
-  }
+//   for (let i = 0; i< arr.length; i++){
+//       end += arr[i]
+//   }
 
-  while(start<= end){
-    let mid = Math.floor((start + end)/2)
+//   while(start<= end){
+//     let mid = Math.floor((start + end)/2)
 
-    if(isPossibleSolution(arr,mid,k)){
-      end = mid - 1
-      ans = mid
-    }
-    else{
-      start = mid + 1
-    }
-  }
-  return ans
-}
+//     if(isPossibleSolution(arr,mid,k)){
+//       end = mid - 1
+//       ans = mid
+//     }
+//     else{
+//       start = mid + 1
+//     }
+//   }
+//   return ans
+// }
 
-const isPossibleSolution=(arr,mid,k)=>{
-  console.log(mid)
-  let paintersCount = 1
-  let sectionToBePaintedSum = 0
+// const isPossibleSolution=(arr,mid,k)=>{
+//   console.log(mid)
+//   let paintersCount = 1
+//   let sectionToBePaintedSum = 0
 
-  for(let i = 0; i<arr.length; i++){
-    if(sectionToBePaintedSum + arr[i] <= mid){
-      sectionToBePaintedSum += arr[i]
-    }
-    else{
-      paintersCount++
-      if(paintersCount > k || arr[i] > mid ){
-        return false
-      }
-      else{
-        sectionToBePaintedSum = arr[i]
-      }
-    }
-  }
-  return true
-}
-console.log(paintersPartiton(arr, k))
+//   for(let i = 0; i<arr.length; i++){
+//     if(sectionToBePaintedSum + arr[i] <= mid){
+//       sectionToBePaintedSum += arr[i]
+//     }
+//     else{
+//       paintersCount++
+//       if(paintersCount > k || arr[i] > mid ){
+//         return false
+//       }
+//       else{
+//         sectionToBePaintedSum = arr[i]
+//       }
+//     }
+//   }
+//   return true
+// }
+// console.log(paintersPartiton(arr, k))

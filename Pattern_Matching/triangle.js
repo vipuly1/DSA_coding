@@ -1,4 +1,4 @@
-// let i = 0
+ // let i = 0
 // let n=4
 // while(i<n){
 //     let j = 0
