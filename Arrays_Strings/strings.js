@@ -133,7 +133,7 @@ console.log(maximumOccurence(string));
 
 /************************************************************************************* */
 // Replace the spaces with @
-const string = "My name is Vipul"
+/*const string = "My name is Vipul"
 
 const replaceSpace = (s)=>{
 
@@ -142,3 +142,43 @@ const replaceSpace = (s)=>{
 }
 
 console.log(replaceSpace(string))
+*/
+
+/************************************************************************ */
+
+// Permutation in String
+
+var checkInclusion = function (s1, s2) {
+  const s1Count = {};
+
+  for (let i = 0; i < s1.length; i++) {
+    if (s1[i] in s1Count) {
+      s1Count[s1[i]] = s1Count[s1[i]] + 1;
+    } else {
+      s1Count[s1[i]] = 1;
+    }
+  }
+  //console.log(s1Count);
+ 
+  let j = 0;
+  let windowsize = j - 1 + s1.length;
+  let s1Count2 = {};
+  for(let k = 0;k < s2.length - 1; k++) {
+    for(let j = k; j<= windowsize;j++) {
+      if (s2[j] in s1Count2) {
+        s1Count2[s2[k]] = s1Count[s2[k]] + 1;
+      } else {
+        s1Count2[s2[k]] = 1;
+      }
+    }
+    console.log(s1Count, s1Count2)
+    console.log(JSON.stringify(s1Count) === JSON.stringify(s1Count2))
+    if (JSON.stringify(s1Count) === JSON.stringify(s1Count2)) return true;
+  }
+  return false
+};
+
+console.log(checkInclusion((s1 = "ab"), (s2 = "eidbaooo")));
+
+
+console.log("ans",JSON.stringify(a) === JSON.stringify(k))

@@ -226,9 +226,8 @@ So for easy mode good for medium mode you need to find different approach*/
 //   }
 // };
 
-
 // const rotate =(nums, k)=>{
-//   let newArr = Array(nums.length) 
+//   let newArr = Array(nums.length)
 //   for(let i = 0;i<nums.length;i++){
 //       let m = (i + k)%nums.length
 //       newArr[m] = nums[i]
@@ -238,8 +237,6 @@ So for easy mode good for medium mode you need to find different approach*/
 // }
 
 // console.log(rotate([1,2,3,4,5], 3))
-
-
 
 //Merge two sorted Arrays
 
@@ -265,7 +262,7 @@ So for easy mode good for medium mode you need to find different approach*/
 //       result.push(nums2[j])
 //       j++
 //   }
-  
+
 //   return result
 // };
 // console.log(merge([1,2,3],3,[2,5],2))
@@ -274,19 +271,19 @@ So for easy mode good for medium mode you need to find different approach*/
 //Check if array is sorted and rotated
 
 // var check = function(nums) {
-  //we have to check for pair.
-  // pair is when a flow is present i < i+1...  // 1pair // array is sorted
-  //  Also, we have to check if the array is sorted and rotated.
-  // To check it we have to check if the last element is smaller than the 
-  // first element
-  
+//we have to check for pair.
+// pair is when a flow is present i < i+1...  // 1pair // array is sorted
+//  Also, we have to check if the array is sorted and rotated.
+// To check it we have to check if the last element is smaller than the
+// first element
+
 //   if(nums.length === 1) return true
 //   let count = 0
 //   for(let i=1; i<nums.length; i++){
 //       if(nums[i-1] >  nums[i]){
 //         console.log(count)
 //           count++
-//       } 
+//       }
 //       if(i == nums.length -1 && count === 0){
 //         console.log("Hi")
 //           return true
@@ -304,7 +301,7 @@ So for easy mode good for medium mode you need to find different approach*/
 
 // Find the sum of two arrays such that all the array no are taken as collective one number
 
-                                              //Method 1
+//Method 1
 /*const twoSum = (arr1, arr2)=>{
     let i = arr1.length-1
     let j = arr2.length -1
@@ -342,10 +339,10 @@ So for easy mode good for medium mode you need to find different approach*/
 return ans
 }
 
-console.log(twoSum([7,2,3,4],[7,2,3,4]))   */  
-  
-                                   //Method 2
+console.log(twoSum([7,2,3,4],[7,2,3,4]))   */
 
+//Method 2
+/*
 const twoSum = (arr1, arr2)=>{
   let arr1No = 0
   let arr2No = 0
@@ -359,5 +356,43 @@ const twoSum = (arr1, arr2)=>{
   let a = Array.from(String(ans), Number)
   return a
 }
-console.log(twoSum([7,2,3,4],[7,2,3,4]))       
+console.log(twoSum([7,2,3,4],[7,2,3,4]))     
+*/
 
+/********************************************************* */
+
+// Two sum
+/*
+let arr = [4, 6, 8, 12, 5, 6];
+let target = 9;
+
+const twoSum2 = (arr, target) => {
+  const obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    let secVal = String(target - arr[i]); 
+    if (secVal in obj) {
+      return [i, obj[secVal]];
+    } else {
+      obj[arr[i]] = i;
+    }
+  }
+  return -1;
+};
+
+console.log(twoSum2(arr, target));
+*/
+
+/**************************************************************************** */
+// Minimum moves
+const N = 3 
+const arr1 = [3,1,5]
+const arr2 = [2,7,4]
+
+const minimumMoves = (arr1, arr2, N) =>{
+  let moves = 0
+  for( let i = 0; i< arr1.length; i++){
+    moves = arr2[i] - arr1[(i+1)%N] + moves
+  }
+  return moves
+}
+console.log(minimumMoves(arr1, arr2, N))

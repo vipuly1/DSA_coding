@@ -46,7 +46,7 @@ const insertionSort = (arr) =>{
     let j = i-1
     let curr = arr[i]
     while(j >= 0){
-      console.log("curr", curr)
+      //console.log("curr", curr)
       if(curr < arr[j]){
         arr[j+1]  = arr[j]  // shifting
         j--
