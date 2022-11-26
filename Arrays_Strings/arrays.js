@@ -384,15 +384,48 @@ console.log(twoSum2(arr, target));
 
 /**************************************************************************** */
 // Minimum moves
-const N = 3 
-const arr1 = [3,1,5]
-const arr2 = [2,7,4]
+// const N = 3 
+// const arr1 = [3,1,5]
+// const arr2 = [2,7,4]
 
-const minimumMoves = (arr1, arr2, N) =>{
-  let moves = 0
-  for( let i = 0; i< arr1.length; i++){
-    moves = arr2[i] - arr1[(i+1)%N] + moves
+// const minimumMoves = (arr1, arr2, N) =>{
+//   let moves = 0
+//   for( let i = 0; i< arr1.length; i++){
+//     moves = arr2[i] - arr1[(i+1)%N] + moves
+//   }
+//   return moves
+// }
+// console.log(minimumMoves(arr1, arr2, N))
+
+/************************************************************* */
+// Plus one
+var plusOne = function(digits) {
+  let toAdd = [1]
+  let ans = []
+  let i = digits.length -1
+  let j= toAdd.length - 1
+  let carry = 0
+  while(i >=0 && j >=0){
+    let sum = digits[i] + toAdd[j] + carry
+    carry = Math.floor(sum / 10)
+    sum = sum % 10
+    ans.unshift(sum)
+    i--
+    j--
   }
-  return moves
-}
-console.log(minimumMoves(arr1, arr2, N))
+  while(i>=0){
+    let sum = digits[i] + carry
+     carry = Math.floor(sum / 10)
+    sum = sum % 10
+    ans.unshift(sum)
+    i--
+  }
+  while(carry !== 0){
+    let sum = carry 
+    carry = Math.floor(sum / 10)
+    sum = sum % 10
+    ans.unshift(sum)
+  }
+  return ans
+};
+console.log(plusOne([6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]))

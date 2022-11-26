@@ -147,38 +147,88 @@ console.log(replaceSpace(string))
 /************************************************************************ */
 
 // Permutation in String
+// Have to do not done
 
-var checkInclusion = function (s1, s2) {
-  const s1Count = {};
+/********************************************************************* */
 
-  for (let i = 0; i < s1.length; i++) {
-    if (s1[i] in s1Count) {
-      s1Count[s1[i]] = s1Count[s1[i]] + 1;
-    } else {
-      s1Count[s1[i]] = 1;
-    }
-  }
-  //console.log(s1Count);
- 
-  let j = 0;
-  let windowsize = j - 1 + s1.length;
-  let s1Count2 = {};
-  for(let k = 0;k < s2.length - 1; k++) {
-    for(let j = k; j<= windowsize;j++) {
-      if (s2[j] in s1Count2) {
-        s1Count2[s2[k]] = s1Count[s2[k]] + 1;
-      } else {
-        s1Count2[s2[k]] = 1;
+// Remove adjacent duplicates
+/*
+var removeDuplicates = function(s) {
+  let i = 0
+  while(i<s.length){
+      if(s[i] === s[i + 1]){
+        console.log("Hii",i)
+          s = s.replace(s[i]+s[i+1],"")
+          i> 0 ? i-- : ""
+          console.log(s,i)
       }
-    }
-    console.log(s1Count, s1Count2)
-    console.log(JSON.stringify(s1Count) === JSON.stringify(s1Count2))
-    if (JSON.stringify(s1Count) === JSON.stringify(s1Count2)) return true;
+      else{
+      i++
+      }
   }
-  return false
+  return s
+};
+console.log(removeDuplicates("aaaaaaaa"))
+
+*/
+
+/******************************************************************* */
+
+var compress = function(chars) {
+  if(chars.length === 1) return 1
+  
+  let i = 0
+  let j = 0
+  let count = 0
+  while(j < chars.length){
+      if(chars[j] !== chars[j+1]){
+        if(count === 0){
+            j++
+            i= j
+        }
+        else{
+          if(count > 8){
+          let num = count + 1
+          chars.splice(i+1,count)
+          let numStr = String(num)
+           let index = i + 1
+           for(let k = 0 ; k<numStr.length;k++){
+            chars.splice(index+k + 1,0,String(numStr[k]))
+           }
+          count = 0 
+          i = i+ numStr.length
+          j = i
+          }
+          else{
+          chars.splice(i+1,count,String(count + 1))
+          count = 0
+          i = i+ 1
+          j = i
+          }
+        }
+      }
+      else{
+          j++
+          count++
+      }
+  }
+  return chars
 };
 
-console.log(checkInclusion((s1 = "ab"), (s2 = "eidbaooo")));
+console.log(compress())
+/*function spreader(num, chars, index){
+  console.log("chars", chars)
+  let ans = [] 
+  while(num !== 0){
+    let mod = num % 10
+    ans.unshift(mod)
+    num = Math.floor(num / 10)
+   }
+   console.log(ans.length, ans)
+   for(let i = 0 ; i<ans.length;i++){
+    chars.splice(index+i,0,String(ans[i]))
+   }
+   return chars
 
-
-console.log("ans",JSON.stringify(a) === JSON.stringify(k))
+}
+*/
