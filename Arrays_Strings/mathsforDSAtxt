@@ -1,0 +1,15 @@
+ ***************************************GCD or HCF***************************************
+Eucledian algo states that the 
+
+gcd of gcd(a,b) is gcd(a-b,b) or gcd(a%b,b) where, a>b
+
+LCM(a,b) * GCD(a,b) = a*b
+
+***************************************Modulo Mathematics*******************************************
+(a+b)%m = a%m + b%m
+(a-b)%m = a%m - b%m
+(a*b)%m = a%m * b%m
+
+***************************************Fast Exponentiation***************************************
+a^m = (a^m/2)^2   for m is even
+a^m = ((a^m/2)^2) * a  for m is odd 

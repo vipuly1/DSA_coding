@@ -1,0 +1,10 @@
+The recursion consist of two parts
+1. the base condition
+2. the recursion relation
+
+1. the base condition:
+    The base condition is the condition that says the recurrsion to stop.
+
+2. the recurrsion relation
+     It tells use the recurrsion relation
+    In both the cases(base condition, recurrsion relation) the return statement is mandatory
